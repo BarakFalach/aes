@@ -5,14 +5,14 @@ public class break_encryption {
     public byte[] breakEncryption(String mPath, String cPath, String outPath){
         byte[][] mByteArray = files_handler.readFile(mPath)[0];
         byte[][] cByteArray = files_handler.readFile(cPath)[0];
-        byte[] output = new byte[16];
+        byte[] output = new byte[32];
         byte[] keysForSingleByte = new byte[2];
 
         for (int i=0; i<mByteArray.length;i++){
             for (int j =0 ; j<mByteArray[0].length;j++) {
                 keysForSingleByte = findKeyForByte(mByteArray[i][j], cByteArray[i][j]);
                 output[i] = keysForSingleByte[0];
-                output[i + 8] = keysForSingleByte[1];
+                output[i + 16] = keysForSingleByte[1];
             }
         }
         return output;
