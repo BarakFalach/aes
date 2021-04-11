@@ -64,4 +64,14 @@ public class files_handler {
         }
     }
 
+    public static void writeKey(String path, byte[] key){
+        try (FileOutputStream fos = new FileOutputStream(path)) {
+            fos.write(key);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
 }

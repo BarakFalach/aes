@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class break_encryption {
 
-    public byte[] breakEncryption(String mPath, String cPath, String outPath){
+    public void breakEncryption(String mPath, String cPath, String outPath){
         byte[][] mByteArray = files_handler.readFile(mPath)[0];
         byte[][] cByteArray = files_handler.readFile(cPath)[0];
         byte[] output = new byte[32];
@@ -15,7 +15,9 @@ public class break_encryption {
                 output[i + 16] = keysForSingleByte[1];
             }
         }
-        return output;
+
+        files_handler.writeKey(outPath,output);
+
     }
 
     public String toBits(final byte val) {
