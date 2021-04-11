@@ -45,6 +45,13 @@ public class encrypt_decrypt {
         return keyToReturn;
     }
 
+    /**
+     * rap function for the encrypt / decrypt.
+     * @param msgPath - path for the message to encrypt/decrypt
+     * @param keyPath - path for the keys
+     * @param outPath - path for the output
+     * @param encrypt - boolean ? encrypt : decrypt
+     */
     public void encrypt_decrypt_helper(String msgPath,String keyPath, String outPath, boolean encrypt){
         byte[][][] messageInMatrix = files_handler.readFile(msgPath);
         byte[] keysBytes = files_handler.readKeys(keyPath);

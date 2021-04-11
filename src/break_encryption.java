@@ -2,6 +2,12 @@ import java.util.Arrays;
 
 public class break_encryption {
 
+    /**
+     * accept m and c, extract the desired keys.
+     * @param mPath message path
+     * @param cPath cypher path
+     * @param outPath output path
+     */
     public void breakEncryption(String mPath, String cPath, String outPath){
         byte[][] mByteArray = files_handler.readFile(mPath)[0];
         byte[][] cByteArray = files_handler.readFile(cPath)[0];
@@ -20,6 +26,11 @@ public class break_encryption {
 
     }
 
+    /**
+     *
+     * @param val - base 10 byte.
+     * @return string that represent val as binary sequence.
+     */
     public String toBits(final byte val) {
         final StringBuilder result = new StringBuilder();
 
@@ -30,6 +41,12 @@ public class break_encryption {
         return result.toString();
     }
 
+    /**
+     * extact key from single byte of msg and single byte from cypher
+     * @param mByte - msg byte
+     * @param cByte - cypher byte
+     * @return return the byte for each key.
+     */
     public byte[] findKeyForByte(byte mByte, byte cByte){
         byte[] keys = new byte[2];
         char[] mAsBits = toBits(mByte).toCharArray();
